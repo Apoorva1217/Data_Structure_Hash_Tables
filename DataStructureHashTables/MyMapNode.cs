@@ -90,7 +90,7 @@ namespace DataStructureHashTables
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public void GetFrequency(V value)
+        public int GetFrequency(V value)
         {
             int frequency = 0;
             foreach (LinkedList<KeyValue<K, V>> list in items)
@@ -111,7 +111,7 @@ namespace DataStructureHashTables
                     }
                 }
             }
-            Console.WriteLine("Frequency of {0} is {1}", value, frequency);
+            return frequency;
         }
     }
 }

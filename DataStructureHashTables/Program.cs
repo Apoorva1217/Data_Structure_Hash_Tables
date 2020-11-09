@@ -8,18 +8,18 @@ namespace DataStructureHashTables
         {
             Console.WriteLine("Welcome to Data Structure Hash Tables!");
 
-            MyMapNode<string, string> hash = new MyMapNode<string, string>(5);
+            MyMapNode<int, string> hash = new MyMapNode<int, string>(20);
+            string[] phrase = new string[] {"Paranoids", "are", "not", "paranoid", "because", "they",
+                "are", "paranoid", "but", "because", "they", "keep", "putting", "themselves",
+                "deliberately", "into", "paranoid", "avoidable", "situations"};
 
-            hash.Add("0", "To");
-            hash.Add("1", "be");
-            hash.Add("2", "or");
-            hash.Add("3", "not");
-            hash.Add("4", "To");
-            hash.Add("5", "be");
-            
-            string hash5 = hash.Get("5");
-            Console.WriteLine("5th index value:" + hash5);
-            hash.GetFrequency("be");
+            int Key = 0;
+            foreach (string word in phrase)
+            {
+                hash.Add(Key, word);
+                Key++;
+            }
+            Console.WriteLine("Frequency : " + hash.GetFrequency("paranoid"));
 
         }
     }
