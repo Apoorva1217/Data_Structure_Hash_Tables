@@ -19,7 +19,9 @@ namespace DataStructureHashTables
                 hash.Add(Key, word);
                 Key++;
             }
-            Console.WriteLine("Frequency : " + hash.GetFrequency("paranoid"));
+            Console.WriteLine("Frequency : " + hash.GetFrequency("avoidable"));
+            hash.RemoveValue("avoidable");
+            Console.WriteLine("Frequency :" + hash.GetFrequency("avoidable"));
 
         }
     }

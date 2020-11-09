@@ -69,6 +69,30 @@ namespace DataStructureHashTables
         }
 
         /// <summary>
+        /// Remove item 
+        /// </summary>
+        /// <param name="key"></param>
+        public void Remove(K key)
+        {
+            int position = GetArrayPosition(key);
+            LinkedList<KeyValue<K, V>> linkedlist = GetLinkedList(position);
+            bool itemFound = false;
+            KeyValue<K, V> foundItem = default(KeyValue<K, V>);
+            foreach (KeyValue<K, V> item in linkedlist)
+            {
+                if (item.Key.Equals(key))
+                {
+                    itemFound = true;
+                    foundItem = item;
+                }
+            }
+            if (itemFound)
+            {
+                linkedlist.Remove(foundItem);
+            }
+        }
+
+        /// <summary>
         /// Get linkedlist
         /// </summary>
         /// <param name="position"></param>
@@ -112,6 +136,33 @@ namespace DataStructureHashTables
                 }
             }
             return frequency;
+        }
+
+        /// <summary>
+        /// Remove value
+        /// </summary>
+        /// <param name="value"></param>
+        public void RemoveValue(V value)
+        {
+            foreach (LinkedList<KeyValue<K, V>> list in items)
+            {
+                if (list == null)
+                {
+                    continue;
+                }
+                foreach (KeyValue<K, V> obj in list)
+                {
+                    if (obj.Equals(null))
+                    {
+                        continue;
+                    }
+                    if (obj.Value.Equals(value)) 
+                    {
+                        Remove(obj.Key);
+                        break;
+                    }
+                }
+            }
         }
     }
 }
